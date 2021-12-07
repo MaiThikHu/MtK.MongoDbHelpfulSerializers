@@ -35,7 +35,7 @@ namespace MtK.MongoDbDateOnlyTimeOnly
             _representation = representation;
         }
 
-        public DateOnlySerializer() : this(BsonType.String)
+        public DateOnlySerializer() : this(BsonType.String) // TODO: allow specification of the string format to be used
         {
             // left blank
         }

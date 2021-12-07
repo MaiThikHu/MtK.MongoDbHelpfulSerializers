@@ -45,7 +45,7 @@ namespace MtK.MongoDbDateOnlyTimeOnly
             // left blank
         }
 
-        public TimeOnlySerializer() : this(BsonType.String, TimeSpanUnits.Ticks)
+        public TimeOnlySerializer() : this(BsonType.String, TimeSpanUnits.Ticks) // TODO: allow specification of the string format to be used
         {
             // left blank
         }
