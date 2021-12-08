@@ -17,6 +17,7 @@
 		<PackageTags>MongoDb;Mongo;serializers;DateOnly;TimeOnly</PackageTags>
 		<Description>Some helpful serializers you can configure the MongoDb driver with.</Description>
 		<Copyright>Copyright Mai Thik Hu Inc. 2021</Copyright>
+		<Authors>MaiThikHu</Authors>
 	</PropertyGroup>
 
   <ItemGroup>
