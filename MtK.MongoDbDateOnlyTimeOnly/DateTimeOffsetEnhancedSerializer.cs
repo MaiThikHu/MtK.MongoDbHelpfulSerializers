@@ -65,7 +65,13 @@ namespace MtK.MongoDbHelpfulSerializers
             switch (bsonType)
             {
                 case BsonType.DateTime:
-                    return new DateTimeOffset(bsonReader.ReadDateTime(), TimeSpan.Zero);
+                    var ticks = bsonReader.ReadDateTime();
+                    if(ticks < DateTimeOffset.MinValue.Ticks)
+                    {
+                        ticks = DateTimeOffset.MinValue.Ticks;
+                    }
+
+                    return new DateTimeOffset(ticks, TimeSpan.Zero);
                 default:
                     return base.Deserialize(context, args);
             }
