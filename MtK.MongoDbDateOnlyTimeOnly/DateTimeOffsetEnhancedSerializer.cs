@@ -77,7 +77,7 @@ namespace MtK.MongoDbHelpfulSerializers
 
                     Debug.WriteLine($"after ticks: {ticks}");
 
-                    return new DateTimeOffset(ticks, TimeSpan.Zero);
+                    return new DateTimeOffset(ticks * 10000, TimeSpan.Zero);
                 default:
                     return base.Deserialize(context, args);
             }
