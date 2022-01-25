@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,10 +67,15 @@ namespace MtK.MongoDbHelpfulSerializers
             {
                 case BsonType.DateTime:
                     var ticks = bsonReader.ReadDateTime();
+
+                    Debug.WriteLine($"before ticks: {ticks}");
+                    
                     if(ticks < DateTimeOffset.MinValue.Ticks)
                     {
                         ticks = DateTimeOffset.MinValue.Ticks;
                     }
+
+                    Debug.WriteLine($"after ticks: {ticks}");
 
                     return new DateTimeOffset(ticks, TimeSpan.Zero);
                 default:
