@@ -68,16 +68,15 @@ namespace MtK.MongoDbHelpfulSerializers
                 case BsonType.DateTime:
                     var ticks = bsonReader.ReadDateTime();
 
-                    Debug.WriteLine($"before ticks: {ticks}");
+                    //Debug.WriteLine($"before ticks: {ticks}");
                     
                     if(ticks < DateTimeOffset.MinValue.Ticks)
                     {
                         ticks = DateTimeOffset.MinValue.Ticks;
                     }
 
-                    Debug.WriteLine($"after ticks: {ticks}");
-
-                    return new DateTimeOffset(ticks * 10000, TimeSpan.Zero);
+                    //Debug.WriteLine($"after ticks: {ticks}");
+                    return DateTimeOffset.FromUnixTimeMilliseconds(ticks);
                 default:
                     return base.Deserialize(context, args);
             }
