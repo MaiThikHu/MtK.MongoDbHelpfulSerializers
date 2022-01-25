@@ -70,10 +70,10 @@ namespace MtK.MongoDbHelpfulSerializers
 
                     //Debug.WriteLine($"before ticks: {ticks}");
                     
-                    if(ticks < DateTimeOffset.MinValue.Ticks)
-                    {
-                        ticks = DateTimeOffset.MinValue.Ticks;
-                    }
+                    //if(ticks < DateTimeOffset.MinValue.Ticks)
+                    //{
+                    //    ticks = DateTimeOffset.MinValue.Ticks;
+                    //}
 
                     //Debug.WriteLine($"after ticks: {ticks}");
                     return DateTimeOffset.FromUnixTimeMilliseconds(ticks);
